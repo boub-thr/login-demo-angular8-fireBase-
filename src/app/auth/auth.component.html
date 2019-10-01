@@ -1,0 +1,61 @@
+<div *ngIf="isLouding" fxLayout fxLayoutAlign="center center" style="margin-top: 25%">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!isLouding" class="login-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <h4>Authentication</h4>
+            </mat-card-title>
+            <mat-card-subtitle>To access your account</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form fxFlex fxLayout="column wrap" fxLayoutAlign="center center" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div *ngIf="errorMsg" class="invalid-logIn">
+                    {{errorMsg}}
+                </div>
+                <mat-form-field>
+
+                    <span matPrefix>
+                        <mat-icon>account_circle</mat-icon> &nbsp;
+                    </span>
+                    <input type="email" matInput placeholder="Email" formControlName="email">
+                    <button mat-button type="button" *ngIf="loginForm.controls['email'].value" matSuffix mat-icon-button aria-label="Clear" (click)="loginForm.controls['email'].setValue('')">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-error>Invalid Email</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input #countC type="password" matInput placeholder="Password" [type]="hideP ? 'password' : 'text'" formControlName="password">
+                    <span matPrefix>
+                        <mat-icon>lock</mat-icon> &nbsp;
+                    </span>
+                    <mat-hint align="start">At least 6 characters</mat-hint>
+                    <mat-hint align="end">{{countC.value?.length || 0}}</mat-hint>
+                    <mat-error>Invalid password, you need at least 6 characters</mat-error>
+                    <button mat-icon-button type="button" matSuffix (click)="hideP = !hideP" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideP">
+                        <mat-icon>{{hideP ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                </mat-form-field>
+
+                <!-- <p *ngIf="error" class="error">
+                {{ error }}
+            </p> -->
+
+                <div class="action-button" fxLayout="column" fxLayoutAlign="space-between center">
+                    <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">Sign in</button>
+                    <!-- <button mat-flat-button color="warn" type="button" (click)="onSignUp()">Sign up</button> -->
+                </div>
+                <div class="forget-data-container" fxLayout="column" fxLayoutAlign="space-between center">
+                    <mat-hint> <a [routerLink]="['/signup']">Sign Up </a></mat-hint>
+                    <mat-hint>Forget my <a href="">Password </a></mat-hint>
+
+                </div>
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

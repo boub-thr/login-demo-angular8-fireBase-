@@ -1,0 +1,94 @@
+.login-container {
+    height: 100%;
+    margin-top: 20%;
+}
+
+mat-card {
+    width: 60%;
+    margin: auto;
+    color: rgb(103, 58, 183);
+}
+
+mat-card-header {
+    display: block;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(60deg, #a780ec, #673ab7);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(128, 76, 221, 0.41);
+    ;
+    padding: 0.8rem;
+    margin-top: -3.5rem !important;
+    border-radius: 3px;
+}
+
+mat-card-header mat-card-subtitle {
+    margin: 0.5rem 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.966);
+}
+
+mat-card-header mat-card-subtitle,
+mat-card-header mat-card-title {
+    font-weight: 300;
+}
+
+mat-card-content,
+mat-card-content form {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 70%;
+    margin-top: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.2em;
+    margin: 0;
+}
+
+.forget-data-container {
+    padding-top: .8rem;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+}
+
+.forget-data-container a {
+    color: inherit;
+}
+
+.invalid-logIn {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    min-width: 60%;
+    text-align: center;
+}
+
+.action-button {
+    margin-top: 8px;
+}
+
+@media(max-width: 700px) {
+    mat-card {
+        width: auto;
+    }
+    mat-form-field {
+        width: 90%;
+        margin-top: 2.2rem;
+    }
+    .action-button {
+        margin-top: 1rem;
+    }
+    .login-container {
+        padding: 0 0.5rem;
+    }
+}
